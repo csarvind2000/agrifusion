@@ -1,0 +1,5 @@
+{
+  "arch": "tf_efficientnet_b4_ns",
+  "img_size": 384,
+  "num_classes": 27
+}

@@ -1,0 +1,15 @@
+__pycache__/
+.venv/
+.env
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+*.log
+data/
+models/
+checkpoints/
+*.zip
+*.pt
+*.pth
+.plantDoc-Outputs/
+.m2_outputs/

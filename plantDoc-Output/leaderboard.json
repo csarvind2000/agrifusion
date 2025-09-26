@@ -1,0 +1,22 @@
+{
+  "results": [
+    {
+      "arch": "efficientnet_b3",
+      "val_best_acc": 0.7389380530973452,
+      "test_acc": 0.7272727272727273,
+      "path": "plantDoc-Output/efficientnet_b3/best_model.pt"
+    },
+    {
+      "arch": "tf_efficientnet_b4_ns",
+      "val_best_acc": 0.7345132743362832,
+      "test_acc": 0.6926406926406926,
+      "path": "plantDoc-Output/tf_efficientnet_b4_ns/best_model.pt"
+    },
+    {
+      "arch": "vit_base_patch16_224",
+      "val_best_acc": 0.584070796460177,
+      "test_acc": 0.4935064935064935,
+      "path": "plantDoc-Output/vit_base_patch16_224/best_model.pt"
+    }
+  ]
+}

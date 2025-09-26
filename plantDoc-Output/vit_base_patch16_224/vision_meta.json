@@ -1,0 +1,5 @@
+{
+  "arch": "vit_base_patch16_224",
+  "img_size": 384,
+  "num_classes": 27
+}

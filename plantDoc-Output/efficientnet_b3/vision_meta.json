@@ -1,0 +1,5 @@
+{
+  "arch": "efficientnet_b3",
+  "img_size": 384,
+  "num_classes": 27
+}
