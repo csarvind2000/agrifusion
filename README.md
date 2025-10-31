@@ -19,16 +19,53 @@ Supports six Indian languages natively:
 
 Both the **UI labels** and **LLM-generated responses** adapt to the selected language.
 
-### 🤖 Agentic Routing
-A built-in **controller agent** automatically detects which input modality is active:
-| Priority | Input | Action |
-|-----------|--------|---------|
-| 1️⃣ | Image uploaded | Run vision inference + LLM explanation |
-| 2️⃣ | Voice query | Run Whisper transcription + LLM reasoning |
-| 3️⃣ | Text query | Run direct LLM Q&A |
-| 4️⃣ | Tabular soil data | Predict best crop + LLM agronomy guidance |
+## 🤖 Multi-Agent Architecture (LLM-Powered Workflow)
 
-Each route triggers a specialized agentic flow, ensuring optimal reasoning and context hand-off to the LLM.
+**AgriFusion** is built on a modular, *agentic reasoning framework* powered by **Autogen** and **Ollama-based LLMs**.  
+Each agent specializes in a different input modality (vision, text, tabular, or voice) and collaborates through a controller to produce coherent multilingual responses.
+
+### 🧩 Agent Roles
+
+| Agent | Responsibility | Example Task |
+|:------|:---------------|:--------------|
+| 🧭 **RouterAgent** | Detects which inputs are active (image, text, voice, or soil data) and decides which agents to activate. | Routes an image upload to the VisionAgent, or a voice query to the VoiceAgent. |
+| 🌿 **VisionAgent** | Uses the EfficientNet/ViT model to identify plant species or detect leaf disease. | “Leaf shows symptoms of rust. Possible cause: fungal infection.” |
+| 🌱 **TabularAgent** | Predicts the most suitable crop or fertilizer using soil & climate parameters (N, P, K, pH, temperature, humidity, rainfall). | “Recommended crop: maize; soil nutrients balanced for K but low N.” |
+| 🎙️ **VoiceAgent** | Transcribes spoken queries using Whisper ASR and forwards the text to the LLM. | Converts: “What fertilizer should I use for rice?” → text query. |
+| 💬 **TextAgent** | Handles natural language Q&A in multiple languages using the local LLM (`llama3` via Ollama). | Responds to “How can I prevent tomato blight?” |
+| 🧠 **ReasoningAgent** | Synthesizes outputs from all active agents into one unified, contextualized, multilingual recommendation. | Merges crop prediction, disease detection, and user question into a single answer. |
+| 🔊 **TTSAgent** | Converts the final LLM answer into speech using **gTTS** for accessible voice feedback. | Speaks out the recommendation in the user’s selected language. |
+
+---
+
+### ⚙️ Agentic Routing Logic
+
+The following workflow defines how AgriFusion dynamically orchestrates reasoning across multiple agents:
+
+Farmer Input
+│
+▼
+🧭 RouterAgent → decides route
+├── 🌿 VisionAgent (if image uploaded)
+├── 🌱 TabularAgent (if NPK/pH/Temp/Humidity provided)
+├── 🎙️ VoiceAgent (if voice recorded)
+└── 💬 TextAgent (if text query given)
+▼
+🧠 ReasoningAgent → merges results, generates multilingual summary
+▼
+🔊 TTSAgent → produces voice output
+▼
+🖥️ Gradio Interface → displays text, tables, and audio
+
+| Component | Library |
+|------------|----------|
+| Agent Coordination | **Autogen** |
+| LLM Backbone | **Ollama** (Llama 3 / Mistral / Phi) |
+| Speech Recognition | **Whisper** |
+| Vision Model | **EfficientNet B3 (timm)** |
+| Speech Synthesis | **gTTS** |
+| Interface | **Gradio v4** |
+
 
 ### 💬 Interactive LLM Chat
 - Integrated **LLM-powered chat assistant** for continuous interaction.  
@@ -127,6 +164,15 @@ AgriFusion/
 
 ```bash
 python crop_multimodal_app.py     --tabular_model_dir m2_outputs     --vision_model_dir plantDoc-Output/efficientnet_b3     --images_dir images     --ollama_model llama3     --whisper_size base     --port 7861
+```
+- multiligual code run 
+```bash
+python crop_multimodal_app_multilang.py       --tabular_model_dir m2_outputs       --vision_model_dir plantDoc-Output/efficientnet_b3       --images_dir images       --ollama_model llama3       --whisper_size base       --port 7863       --default_lang en
+```
+
+- multi-agentic code run 
+```bash
+python agrifusion_multiagent_ui.py
 ```
 
 - Open [http://localhost:7861](http://localhost:7861) in your browser.  
