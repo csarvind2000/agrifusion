@@ -1,0 +1,35 @@
+# === Core ===
+torch
+torchvision
+numpy
+pandas
+scikit-learn
+joblib
+timm
+Pillow
+requests
+
+# === LLM & Multi-Agent Framework ===
+autogen
+openai
+langchain
+sentence-transformers
+
+# === Whisper ASR + Text-to-Speech ===
+openai-whisper
+gTTS
+
+# === Frontend ===
+gradio>=4.0
+
+# === Utilities ===
+fastapi
+uvicorn
+python-dotenv
+argparse
+tqdm
+jsonschema
+
+# === Optional (for experimentation / cloud) ===
+transformers
+huggingface_hub
