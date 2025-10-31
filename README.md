@@ -1,6 +1,44 @@
-# 🌿 AgriFusion — Multimodal AI Smart Farming Assistant  
+# 🌿 AgriFusion — An LLM-Powered Agentic Multilingual AI Assistant for Vision, Voice & Smart Farming
 
-AgriFusion is an intelligent **multimodal farming assistant** that unifies **soil & climate data, crop images, text queries, and voice inputs** into a single AI platform. It helps farmers, researchers, and agronomists make **smarter and sustainable farming decisions**.  
+**AgriFusion (AgroSense Studio)** is an intelligent, **multimodal–multilingual LLM system** designed to assist farmers, agronomists, and researchers with real-time crop prediction, disease identification, and agronomy recommendations.  
+It integrates **tabular soil data**, **plant images**, **text queries**, and **voice interactions** into one unified interface powered by **Large Language Models (LLMs)** and **agentic routing logic**.
+
+---
+
+## 🧠 Key Features
+
+### 🌾 Multimodal Intelligence
+- **Tabular Mode:** Predicts suitable crops or fertilizers using trained ML/DL models.  
+- **Vision Mode:** Classifies plant diseases using `timm`-based EfficientNet or ViT models.  
+- **Text Mode:** Answers agronomy-related questions using LLMs.  
+- **Voice Mode:** Listens and responds to spoken queries using **Whisper** + **gTTS**.
+
+### 🗣️ Multilingual Interface
+Supports six Indian languages natively:
+> **English**, **हिन्दी (Hindi)**, **ಕನ್ನಡ (Kannada)**, **தமிழ் (Tamil)**, **മലയാളം (Malayalam)**, **తెలుగు (Telugu)**
+
+Both the **UI labels** and **LLM-generated responses** adapt to the selected language.
+
+### 🤖 Agentic Routing
+A built-in **controller agent** automatically detects which input modality is active:
+| Priority | Input | Action |
+|-----------|--------|---------|
+| 1️⃣ | Image uploaded | Run vision inference + LLM explanation |
+| 2️⃣ | Voice query | Run Whisper transcription + LLM reasoning |
+| 3️⃣ | Text query | Run direct LLM Q&A |
+| 4️⃣ | Tabular soil data | Predict best crop + LLM agronomy guidance |
+
+Each route triggers a specialized agentic flow, ensuring optimal reasoning and context hand-off to the LLM.
+
+### 💬 Interactive LLM Chat
+- Integrated **LLM-powered chat assistant** for continuous interaction.  
+- Maintains context of predictions (e.g., detected crop/disease) for deeper follow-up questions.  
+- Supports **voice-based** chat using Whisper and speech synthesis with gTTS.
+
+### 🎨 Elegant Gradio UI
+- Responsive **3-panel layout** for Inputs • Results • Chat.  
+- Dynamic label translation when changing languages.  
+- Custom CSS with soft green theme for a modern agricultural feel.
 
 ---
 
@@ -145,3 +183,5 @@ This project is released under the **MIT License**.
 ---
 
 ✨ **AgriFusion — Smarter Farming, Powered by Multimodal AI.**  
+
+
