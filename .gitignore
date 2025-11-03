@@ -13,3 +13,4 @@ checkpoints/
 *.pth
 .plantDoc-Outputs/
 .m2_outputs/
+.models/

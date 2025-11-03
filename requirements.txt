@@ -33,3 +33,4 @@ jsonschema
 # === Optional (for experimentation / cloud) ===
 transformers
 huggingface_hub
+python-dotenv
