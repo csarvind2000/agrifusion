@@ -14,3 +14,15 @@ checkpoints/
 .plantDoc-Outputs/
 .m2_outputs/
 .models/
+
+# Ignore MLflow tracking files
+multiagentic_training/mlruns/
+multiagentic_training/mlruns.db
+
+# Ignore output directories (training artifacts, images, SHAP, GradCAM)
+multiagentic_training/outputs_train/
+multiagentic_training/outputs_eval/
+multiagentic_training/runs/
+multiagentic_training/checkpoints/
+multiagentic_training/tmp/
+multiagentic_training/data/

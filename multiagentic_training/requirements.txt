@@ -1,0 +1,12 @@
+numpy
+pandas
+scikit-learn
+optuna           # optional; not used heavily in default run, but ready to extend
+mlflow           # optional tracking
+joblib
+timm
+torch
+torchvision
+torchaudio
+matplotlib       # for your own plots if needed
+shap

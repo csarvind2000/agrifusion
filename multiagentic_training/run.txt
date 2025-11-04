@@ -1,0 +1,7 @@
+# Tabular CSV (auto target detection, Optuna + SHAP + MLflow)
+python multiagent_train.py --csv data.csv --trials 20 \
+  --mlflow_uri sqlite:///mlruns.db --experiment agrifusion
+
+# PlantDoc image training (folder with class subfolders)
+python multiagent_train.py --plantdoc /media/ranjhaa-local/New\ Volume1/arvindcs_home/LLM/S_PHD_OUTPUT/PlantDoc-Dataset --epochs 100 \
+  --mlflow_uri sqlite:///mlruns.db --experiment agrifusion
